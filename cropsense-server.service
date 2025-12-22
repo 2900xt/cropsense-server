@@ -1,0 +1,17 @@
+[Unit]
+Description=CROPSENSE Flask Data Server
+After=network.target
+
+[Service]
+Type=simple
+User=taha
+WorkingDirectory=/opt/cropsense/server-src
+Environment="PYTHONUNBUFFERED=1"
+ExecStart=/opt/cropsense/server-src/.venv/bin/python3 app.py
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
